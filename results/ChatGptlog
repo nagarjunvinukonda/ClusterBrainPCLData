@@ -1,0 +1,62 @@
+My ChatGPT LOG:
+
+How to install PCL on UBuntu 22.0.4?
+
+Step 1: Install PCL (Point Cloud Library)
+First, install PCL and its dependencies on your system using the following command:
+
+bash
+Copy code
+sudo apt update
+sudo apt install libpcl-dev
+
+
+HOw to isntall grpC on UBuntu 22.0.04
+
+Yes, to successfully run a C++ program with the headers you've included in Ubuntu 22.04, you need to install some libraries and tools. Here's a breakdown of what you may need to install:
+
+C++ Compiler:
+
+Ensure you have a C++ compiler installed, such as g++. You can install it by running:
+bash
+Copy code
+sudo apt update
+sudo apt install build-essential
+gRPC and Protocol Buffers: Since you're using grpcpp/grpcpp.h and .grpc.pb.h (generated from Protocol Buffers), you'll need to install gRPC and Protocol Buffers. To do that:
+
+Install dependencies:
+
+bash
+Copy code
+sudo apt install autoconf automake libtool curl make g++ unzip
+Install Protocol Buffers (protoc) and gRPC:
+
+bash
+Copy code
+git clone --recurse-submodules -b v1.56.0 https://github.com/grpc/grpc
+cd grpc
+mkdir -p cmake/build
+cd cmake/build
+cmake ../..
+make -j
+sudo make install
+Protobuf Compiler (protoc): If you haven't generated the .pb.h and .grpc.pb.h files, you need to install the Protocol Buffers compiler and use it to generate these files. The installation above should handle this.
+
+Visual Studio Code Extensions: Make sure you have the necessary extensions in VS Code for working with C++ and gRPC:
+
+C/C++ Extension: Install the official Microsoft C/C++ extension for syntax highlighting, IntelliSense, and debugging.
+gRPC/Protocol Buffers Support: You might want a Protocol Buffers extension for working with .proto files.
+CMake (Optional but recommended): If you're using CMake to manage your project, ensure that it's installed:
+
+bash
+Copy code
+sudo apt install cmake
+
+
+
+I have further used to ChatGPT to understand Multithreading; Clustering kd-tree based DBSCAN approach into not using kd-tree;  
+
+
+
+
+

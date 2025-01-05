@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Install dependencies
+sudo apt-get update && apt-get install -y \
+        g++ \
+        cmake \
+        make \
+        libprotobuf-dev \
+        protobuf-compiler \
+        libgrpc++-dev \
+        grpc-proto \
+        libssl-dev \
+        && apt-get clean
+
+# Create proto_generated directory and generate protobuf files without sudo
+mkdir -p proto_generated 
+protoc -I=proto --grpc_out=./proto_generated --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` proto/pointcloud.proto 
+protoc -I=proto --cpp_out=./proto_generated proto/pointcloud.proto
+
+# Move to client_src
+cd client_src
+
+# Build the gRPC client
+mkdir -p build \
+    && cd build \
+    && cmake .. \
+    && make 
+
+# Copy client executable
+cp ./grpc_pointcloud_client ../../client
+
+# sudo chown -R $USER:$USER proto_generated
+# sudo chown -R $USER:$USER client
+
+

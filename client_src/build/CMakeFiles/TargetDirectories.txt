@@ -1,0 +1,3 @@
+/home/nagarjun/neuralink_nagarjun_project/client_src/build/CMakeFiles/grpc_pointcloud_client.dir
+/home/nagarjun/neuralink_nagarjun_project/client_src/build/CMakeFiles/edit_cache.dir
+/home/nagarjun/neuralink_nagarjun_project/client_src/build/CMakeFiles/rebuild_cache.dir

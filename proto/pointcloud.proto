@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package pointcloud;
+
+message NLPoint {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+  // A point ID is an integer identification for each point. You are free to decide how to assign IDs in your client but
+  // in your server implementation, pointID to point association must stay consistent.
+  int32 id = 4;
+}
+
+// A chunk of point data from a full point cloud dataset.
+message NLChunkRequest {
+  repeated NLPoint points = 1;
+}
+
+// The target clustering labels for point clouds.
+//
+// Points within the dura correspond to the top layer of the scan.
+// Points within the cortical surface correspond to the bottom layer of the scan.
+// Otherwise, points are labeled as unknown.
+enum NLClusterLabel {
+  UNKNOWN = 0;
+  CORTICAL_SURFACE = 1;
+  DURA = 2;
+}
+
+// A resulting cluster classification.
+//
+// The point_id corresponds to the NLPoint.id in the relevant NLPoint in the input NLChunkRequest.
+message NLClusterResponse {
+  NLClusterLabel label = 1;
+  int32 point_id = 2;
+}
+
+service NLPointCloudService {
+  // A request to cluster the given point cloud by the groups defined in NLClusterLabel
+  // using an appropriate algorithm of your choosing.
+  //
+  // This is a streaming endpoint, and multiple NLChunkRequests may be sent as part of a single
+  // request, just as multiple NLClusterResponses may be returned. Your implementation should start
+  // sending cluster responses after all chunk requests have been received.
+  rpc Cluster(stream NLChunkRequest) returns (stream NLClusterResponse);
+}
