@@ -1,4 +1,4 @@
-# Neuralink Programming Challenge
+# Cluster Brain PointCloud Data
 
 The aim of this project is develop a gRPC pipleine that reads the Brain data and clusters it to provide it's expected result. The dataset consists of point cloud distinguished into three distinct groups of points; the groups are:<br />
 1. The top layer of the scan ("Dura")<br />
@@ -23,7 +23,7 @@ To run the package your system needs to install [Docker](https://www.digitalocea
 ## Package structure:
 
 ```
-neuralink_nagarjun_project/
+nagarjun_project/
 │
 ├── Dockerfile                      # Dockerfile for the server
 |
@@ -68,7 +68,7 @@ neuralink_nagarjun_project/
 Go to your package:<br />
 
 ```
-cd neuralink_nagarjun_project
+cd nagarjun_project
 ```
 
 Build the Dockerfile for the gRPC server:<br />
