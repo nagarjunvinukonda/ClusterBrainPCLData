@@ -7,7 +7,7 @@ The aim of this project is develop a gRPC pipleine that reads the Brain data and
 
 The project requires me to build a gRPC server-client. The client reads the data and sends a request to gRPC server. The server receives that data and clusters the point cloud to classify it into three distict groups of the brain. Then responds back to client with the classified labels for each point among the clusters. Further this data is written into a file called output.labels.<br />
 
-I was able to work for 4-5 days during weekends only (due to heavy work on weekdays). Currently I am using DBSCAN like approach for clustering, which is not providing expected result *except* for 'oct-3-small.pcd' dataset. If given more time I can debug my algorithm to provide it's best result. As it was mentioned *not to use any external libraries for the clustering itself* my DBSCAN implementation has limitations. <br />
+I was able to work for 4-5 days during weekends only (due to heavy work on weekdays). Currently I am using DBSCAN like approach for clustering, which is not providing expected result *except* for 'oct-3-small.pcd' dataset. If I put more time I can debug my algorithm to provide it's best result. As it was mentioned *not to use any external libraries for the clustering itself* my DBSCAN implementation has limitations. <br />
 
 
 ## Developer: 
