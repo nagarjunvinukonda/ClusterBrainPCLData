@@ -15,7 +15,8 @@ I was able to work for 4-5 days during weekends only (due to heavy work on weekd
 **Nagarjun Vinukonda**
 
 ## Results:
-![](https://github.com/nagarjunvinukonda/ClusterBrainPCLData/blob/main/results/oct-1-small.png "Point Cloud cluster on 70k data points")
+![My Awesome Animation](https://github.com/nagarjunvinukonda/ClusterBrainPCLData/blob/main/results/brainCluster.gif)
+
 
 ## Pre-requisites:
 
