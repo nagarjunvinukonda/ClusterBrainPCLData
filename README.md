@@ -105,6 +105,39 @@ Open another terminal to run the client:<br />
 
 This should provide you output.labels in the data folder to visualize the 3D data classified.
 
+## Closing this Project:
+
+After the clustering is compltete and extracting the output.labels file, close the server via ctr + c. <br />
+
+The find the docker container number ID that is running:<br />
+```
+sudo docker ps
+```
+Stop the docker conatiner:
+```
+docker stop <your-container-ID>
+```
+
+## Visualizing this Project:
+There is a visualize.py file avaialble in help folder that can help you visulaize the point cloud via open3D UI. Naviagte to help folder<br />
+```
+cd help
+```
+Install the requirements for your system <br />
+```
+pip install -r requirements.txt
+```
+
+Make python executable:<br />
+```
+chmod +x visualize.py
+```
+
+Run the visualizer, below is the example if you are visualizing a partiucular pcd data, provide it as an input with *-i* flag and your output labels with a *-l* flag:<br />
+```
+python3 visualize.py -i <path to /oct-3-small.pcd> -l <path to /oct-3-small.labels>
+```
+
 
 ## Advantages:
 - Multi-threading is used for finding nearset neighbors and which speeds up the clustering process further. 
